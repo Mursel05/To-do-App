@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+.line {
+  text-decoration: line-through;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #58b7d7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 736px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form {
+  padding: 20px;
+  background-color: white;
+  width: 278px;
   display: flex;
   flex-direction: column;
+  gap: 15px;
+  border-radius: 5px;
+}
+.input {
+  display: flex;
+  gap: 5px;
+}
+
+.input button {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #7a0bc0;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.input button img {
+  transition: transform 0.8s;
+}
+.transform-img-enter {
+  transform: rotate(90deg);
+}
+input {
+  width: 220px;
+  height: 30px;
+  padding-left: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: #a6a3a3 solid;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.item {
+  display: flex;
+  cursor: pointer;
+  background-color: #d7d2da;
+  width: 278px;
+  height: 30px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+.image {
+  display: flex;
+  align-items: center;
+  width: 0px;
+  height: 0px;
+  transition: width 2s, height 2s;
+}
+.item img {
+  border-radius: 5px;
+  width: 0px;
+  height: 0px;
+  transition: width 2s, height 2s;
+}
+.ad {
+  width: 30px !important;
+  height: 30px !important;
+}
+.job {
+  padding-left: 10px;
+  width: 228px;
+  transition: width 2s linear;
+}
+.job-click-false {
+  width: 288px;
+}
+.head {
+  font-weight: 700;
+  font-size: 25px;
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 278px;
+}
+.footer button {
+  background-color: #7a0bc0;
   color: white;
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+.footer-half {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.hidden {
+  display: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error {
+  color: red;
+  font-weight: 600;
+  font-size: 10px;
+  padding-left: 10px;
 }
