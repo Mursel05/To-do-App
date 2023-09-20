@@ -4,9 +4,9 @@
 body {
   background-color: #58b7d7;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 736px;
+  height: 100vh;
+  justify-content: center;
 }
 form {
   padding: 20px;
@@ -21,7 +21,6 @@ form {
   display: flex;
   gap: 5px;
 }
-
 .input button {
   display: flex;
   align-items: center;
@@ -33,7 +32,7 @@ form {
 .input button img {
   transition: transform 0.8s;
 }
-.transform-img-enter {
+.input button:hover > img {
   transform: rotate(90deg);
 }
 input {
@@ -53,36 +52,31 @@ input {
   display: flex;
   cursor: pointer;
   background-color: #d7d2da;
-  width: 278px;
   height: 30px;
   align-items: center;
   justify-content: space-between;
   border-radius: 5px;
 }
-.image {
-  display: flex;
-  align-items: center;
-  width: 0px;
-  height: 0px;
-  transition: width 2s, height 2s;
-}
 .item img {
   border-radius: 5px;
-  width: 0px;
-  height: 0px;
-  transition: width 2s, height 2s;
+  transition: all 1s linear;
+  max-width: 0px;
+  height: 30px;
 }
-.ad {
-  width: 30px !important;
-  height: 30px !important;
+.open img {
+  max-width: 30px;
+}
+.delete {
+  align-self: flex-end;
 }
 .job {
   padding-left: 10px;
-  width: 228px;
-  transition: width 2s linear;
 }
-.job-click-false {
-  width: 288px;
+.job span {
+}
+.check-job {
+  display: flex;
+  align-items: center;
 }
 .head {
   font-weight: 700;
@@ -113,7 +107,7 @@ input {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 .error {
   color: red;

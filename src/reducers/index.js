@@ -1,7 +1,4 @@
 import dataReducer from "./data";
-import error from "./error";
-import job from "./job";
-import transformImg from "./transformImg";
 import { combineReducers } from "redux";
-const allReducers = combineReducers({ dataReducer, error, job, transformImg });
+const allReducers = combineReducers({ dataReducer });
 export default allReducers;

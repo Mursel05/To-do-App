@@ -1,58 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { itemDelete, itemMark } from "../actions/index.js";
 
-const Item = ({ data, hiddenImg, markDone, deleteItem }) => {
-  return data.map((item, id) => {
-    return (
-      <div className="item" key={id}>
-        <div
-          className={item.click === false ? "image" : "image ad"}
-          onClick={() => markDone(item.id)}
-        >
-          <img
-            src="images/icons8-unchecked-checkbox-50.png"
-            alt="icon"
-            className={
-              item.done === false
-                ? item.click === false
-                  ? ""
-                  : "ad"
-                : "hidden"
-            }
-          />
-          <img
-            src="images/icons8-tick-50 (1).png"
-            alt="icon"
-            className={
-              item.done === true ? (item.click === false ? "" : "ad") : "hidden"
-            }
-          />
-        </div>
-
-        <div
+const Item = ({ item }) => {
+  const dispatch = useDispatch();
+  const [openSide, setOpenSide] = useState("item");
+  return (
+    <div
+      className={openSide}
+      onClick={() => setOpenSide(openSide === "item" ? "open item" : "item")}
+    >
+      <div className="check-job">
+        <img
           onClick={(e) => {
-            e.preventDefault();
-            hiddenImg(item.id);
+            e.stopPropagation();
+            dispatch(itemMark(item.id));
           }}
-          className={
-            item.click === false ? "job-click-false job" : "job-click-true job"
-          }
-        >
-          <span className={item.done === true ? "line" : ""}>{item.job}</span>
-        </div>
-
-        <div
-          className={item.click === false ? "image" : "image ad"}
-          onClick={() => deleteItem(item.id)}
-        >
-          <img
-            src="images/icons8-trash-30.png"
-            alt="icon"
-            className={item.click === false ? "" : "ad"}
-          />
+          src="images/icons8-unchecked-checkbox-50.png"
+          alt="icon"
+          className={item.done ? "hidden" : ""}
+        />
+        <img
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(itemMark(item.id));
+          }}
+          src="images/icons8-tick-50 (1).png"
+          alt="icon"
+          className={item.done ? "" : "hidden"}
+        />
+        <div className="job">
+          <p className={item.done === true ? "line" : ""}>{item.job}</p>
         </div>
       </div>
-    );
-  });
+      <img
+        onClick={(e) => {
+          e.stopPropagation();
+          dispatch(itemDelete(item.id));
+        }}
+        src="images/icons8-trash-30.png"
+        alt="icon"
+        className="delete"
+      />
+    </div>
+  );
 };
 
 export default Item;
